@@ -27,6 +27,14 @@ public class SecurityAppConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+
+        // Creating custom login form
+        http.authorizeRequests() //Restrict access based on HttpServletRequest
+                .anyRequest().authenticated() //Any request to the app must be authenticated(i.e logged in)
+                .and()
+                .formLogin()    //We're customizing the login process
+                .loginPage("/login")    //Show our custom form at the request mapping.
+                .loginProcessingUrl("/authenticateUser")    //login form should POST data to this URL for processing (check user id and pwd)
+                .permitAll();   //Allow everyone to see this login page
     }
 }
