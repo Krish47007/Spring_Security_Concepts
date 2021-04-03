@@ -35,6 +35,8 @@ public class SecurityAppConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()    //We're customizing the login process
                 .loginPage("/login")    //Show our custom form at the request mapping.
                 .loginProcessingUrl("/authenticateUser")    //login form should POST data to this URL for processing (check user id and pwd)
-                .permitAll();   //Allow everyone to see this login page
+                .permitAll()   //Allow everyone to see this login page
+                .and()
+                .logout().permitAll(); //Adding logout support
     }
 }
