@@ -36,7 +36,7 @@
 				<div style="padding-top: 30px" class="panel-body">
 
 					<!-- Login Form -->
-					<form action="${pageContext.request.contextPath}/authenticateUser"
+					<form:form action="${pageContext.request.contextPath}/authenticateUser"
 							   method="POST" class="form-horizontal">
 
 					    <!-- Place for messages: error, alert etc ... -->
@@ -85,14 +85,14 @@
 								<button type="submit" class="btn btn-success">Login</button>
 							</div>
 						</div>
-
+						<%--
 						<!-- Manually adding CSRF token using jsp expression language -->
 						<!-- Spring security will process the request and add name and value for csrf token
 							 Its randomly generated for a user's session
 						-->
 						<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}">
-					</form>
+								value="${_csrf.token}">--%>
+					</form:form>
 
 				</div>
 
