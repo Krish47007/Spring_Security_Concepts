@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri= "http://www.springframework.org/security/tags"%>
 <html>
 <head>
     <title>Spring Security Demo App</title>
@@ -15,6 +16,10 @@
 
     <h1>Welcome to Spring security demo App!!!</h1>
     <hr />
+    User : <security:authentication property="principal.username" />
+    <br><br>
+    Role(s) : <security:authentication property="principal.authorities" />
+    <hr/>
 
     <!-- Adding Logout support -->
 
